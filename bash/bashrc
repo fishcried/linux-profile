@@ -1,0 +1,59 @@
+################################################################################
+# Special configs for myself
+################################################################################
+
+# User specific aliases and functions
+
+# Alias for cd
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+
+# Alias for git
+alias gitst='git status -sb '
+alias gitad='git add '
+alias gitbr='git branch '
+alias gitdf='git diff '
+alias gitco='git checkout'
+alias gitci='git commit'
+alias gitlg="git log --pretty=format:'%h %ad | %s% [%an]' --graph -- date=short"
+
+# format for c files
+alias indent='indent -kr -i8 -ts8 -sob -l80 -ss -bs -psl'
+alias cgrep="grep -nr --include *.[ch] "
+
+# alias for auto login
+alias ipscode="ssh_login 192.168.54.7 wtq wtq"
+alias ipsengine="openengine 192.168.38.27 admin venus.nips"
+
+# for blog
+
+# config hla
+export hlalib=/usr/hla/hlalib
+export hlainc=/usr/hla/include
+
+# set language and decode
+#export LC_ALL="zh_CN.GBK"
+#export LANG="zh_CN.GBK"
+
+#export SVN_EDITOR=vim
+
+export PATH=$PATH:/usr/local/bin:~/Bin
+export HISTTIMEFORMAT='%F %T '
+
+
+# quick switch path
+export MARKPATH=$HOME/.marks
+function jump {
+	cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+}
+function mark {
+	mkdir -p "$MARKPATH/" ; ln -s "$(pwd)" "$MARKPATH/$1"
+}
+function unmark {
+	rm -i "$MARKPATH/$1"
+}
+function marks {
+	ls -l "$MARKPATH" | awk '{if (NR != 1) { printf "%s\t->\t%s\n", $9,$11}}'
+}
+

@@ -1,0 +1,166 @@
+set nocompatible
+
+let mapleader = ";"
+let g:mapleader= ";"
+
+set history=700
+set showcmd
+set autoread
+
+filetype plugin on
+filetype indent on
+
+set so=7 "set 7 lines  to the cursos  when moving vertical..
+set ruler " always show current position
+set cmdheight=2 " the commandbar height
+set hid " change buffer - without saving
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+"set ignorecase
+set smartcase
+set hlsearch 
+set incsearch
+set magic "set magic on, for regular expressions
+"set autochdir
+set showmatch
+set nowrapscan
+" No sound when errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+set laststatus=2
+set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\
+
+syntax enable
+colorscheme desert
+set background=dark
+set nu
+set encoding=utf8
+set fileencodings=utf-8,chinese,euc-cn
+
+set nobackup
+set foldmethod=syntax
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"set expandtab
+set autoindent
+set smarttab
+set smartindent
+set wrap
+
+
+autocmd! bufwritepost *.vimrc source $HOME/.vimrc
+function g:set_code_stype_by_filetype()
+	if  &filetype == "c"
+		set shiftwidth=8
+		set tabstop=8
+		set cindent
+	elseif &filetype == "python"
+		set shiftwidth=4
+		set tabstop=4
+		set expandtab
+	elseif &filetype == "vimwiki"
+		set shiftwidth=4
+		set tabstop=4
+	else
+		set shiftwidth=4
+		set tabstop=4
+	endif
+endfunction
+
+autocmd FileType * call g:set_code_stype_by_filetype()
+
+" load templates
+autocmd BufNewFile *.md 0r ~/.vim/templates/md.tpl
+autocmd BufNewFile *.py 0r ~/.vim/templates/py.tpl
+autocmd BufNewFile *.sh 0r ~/.vim/templates/sh.tpl
+
+
+nmap <space> :
+nmap <c-s> :w<cr>
+nmap <c-q> :q<cr>
+nmap <c-e> :e! ~/.vimrc<cr>
+map <silent> <leader><cr> :noh<cr>
+map <right> :bn<cr>
+map <right> :bp<cr>
+map <c-p> :tabprevious<cr>
+map <c-n> :tabnext<cr>
+
+map <leader>tn :tabnew<cr>
+map <leader>te :tabedit
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+
+nmap <leader>bug :r ~/.vim/templates/bug_fix.temp<cr>
+
+let g:changelog_tpl = "~/.vim/templates/changelog.tpl"
+function g:changelog()
+	let logo = strftime("%Y-%m-%d %T ") . "fishcried@163.com"
+	call setline(".", logo)
+	if exists(g:changelog_tpl)
+		:r g:changelog_tpl
+	else
+		echo "no template file for changelog"
+	endif
+endfunction
+nmap <leader>clog :call g:changelog()<cr>
+
+
+iab idate <c-r>=strftime("%Y-%m-%d")<CR>
+iab itime <c-r>=strftime("%H:%M")<CR>
+iab imail Wangtian qing <tianqing.w@gmail.com>
+
+let g:vimwiki_list = [{'path': '~/Documents/vimwiki/wiki/', 
+			\'path_html': '~/Documents/vimwiki/wiki_html/',
+			\'template_path' : '~/Documents/vimwiki/wiki_html/template/',
+			\'template_default' : 'default_template.tpl',
+			\'template_ext' : '.html' },
+			\{'path': '~/Documents/markdown/', 
+			\'syntax': 'markdown'}]
+let g:vimwiki_valid_html_tags = ''
+let g:vimwiki_file_exts = 'c,txt,h,sh,python,pdf'
+let g:vimwiki_camel_case = 1
+let g:vimwiki_h1_cb_checked = 1
+let g:vimwiki_menu = ''
+let g:vimwiki_folding = 1
+let g:vimwiki_CJK_length = 1
+
+nmap <leader>tl :Tlist<cr>
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_File_Fold_Auto_Close=1
+"let Tlist_Auto_Open=1
+
+
+let g:winManagerWindowLayout="TagList|FileExplorer,BufExplorer"
+let g:winManagerWidth=30
+nmap <silent> <F8> :WMToggle<cr>
+
+" Auto load cscope.out
+if filereadable("cscope.out")
+	cs add cscope.out
+endif
+
+let g:C_MapLeader=';'
+
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+nmap <C-w><C-\>s :scs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-w><C-\>g :scs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-w><C-\>c :scs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-w><C-\>t :scs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-w><C-\>e :scs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-w><C-\>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-w><C-\>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-w><C-\>d :scs find d <C-R>=expand("<cword>")<CR><CR>
+
