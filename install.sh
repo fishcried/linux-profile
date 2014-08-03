@@ -12,7 +12,12 @@ function backup ()
 }
 echo "Install bash configs"
 [ -e ~/.bashrc.bak ] || backup ~/.bashrc
+
 cat ~/.bashrc.bak $PWD/bash/bashrc > ~/.bashrc
+if [ -e "$PWD/bash/self" ];then
+	cat $PWD/bash/self >> ~/.bashrc
+fi
+
 . ~/.bashrc
 
 # for vim
