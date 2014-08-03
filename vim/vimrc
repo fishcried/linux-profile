@@ -72,6 +72,7 @@ function g:set_code_stype_by_filetype()
 endfunction
 
 autocmd FileType * call g:set_code_stype_by_filetype()
+autocmd BufNewFile *.sls set shiftwidth=1 tabstop=1 expandtab
 
 " load templates
 autocmd BufNewFile *.md 0r ~/.vim/templates/md.tpl
