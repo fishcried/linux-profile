@@ -25,13 +25,17 @@ alias cgrep="grep -nr --include *.[ch] "
 
 # for blog
 
+# for screen
+alias scn="screen"
+
 # config hla
 export hlalib=/usr/hla/hlalib
 export hlainc=/usr/hla/include
 
 # set language and decode
-#export LC_ALL="zh_CN.GBK"
-#export LANG="zh_CN.GBK"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
 
 #export SVN_EDITOR=vim
 

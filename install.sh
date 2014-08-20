@@ -27,4 +27,8 @@ ln -s -T $PWD/vim/vimrc ~/.vimrc
 backup ~/.vim
 ln -s -T $PWD/vim ~/.vim
 
+
+echo "Install firefox "
+backup ~/.pentadactylrc
+ln -s -T $PWD/firefox/pentadactylrc ~/.pentadactylrc
 echo "Congratulations, install successful"

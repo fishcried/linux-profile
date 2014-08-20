@@ -72,7 +72,7 @@ function g:set_code_stype_by_filetype()
 endfunction
 
 autocmd FileType * call g:set_code_stype_by_filetype()
-autocmd BufNewFile *.sls set shiftwidth=1 tabstop=1 expandtab
+autocmd BufNewFile,BufRead *.sls set shiftwidth=2 tabstop=2 expandtab
 
 " load templates
 autocmd BufNewFile *.md 0r ~/.vim/templates/md.tpl
@@ -81,9 +81,9 @@ autocmd BufNewFile *.sh 0r ~/.vim/templates/sh.tpl
 
 
 nmap <space> :
-nmap <c-s> :w<cr>
-nmap <c-q> :q<cr>
-nmap <c-e> :e! ~/.vimrc<cr>
+nmap <leader>s :w<cr>
+nmap <leader>q :q<cr>
+nmap <leader>e :e! ~/.vimrc<cr>
 map <silent> <leader><cr> :noh<cr>
 map <right> :bn<cr>
 map <right> :bp<cr>
@@ -164,4 +164,9 @@ nmap <C-w><C-\>e :scs find e <C-R>=expand("<cword>")<CR><CR>
 nmap <C-w><C-\>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-w><C-\>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-w><C-\>d :scs find d <C-R>=expand("<cword>")<CR><CR>
+
+
+" conque_term
+nmap <leader>tb :ConqueTermSplit bash<cr>
+
 

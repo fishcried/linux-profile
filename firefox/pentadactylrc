@@ -1,0 +1,36 @@
+"1.1
+
+loadplugins '\.(js|penta)$'
+group user
+
+set titlestring="Firefox"
+
+set mapleader=;
+
+" scroll
+nmap -builtin j 10j
+nmap -builtin k 10k
+
+set hintkeys=asdfglkjh
+
+set editor='gvim -f +<line> +"sil! call cursor(0, <column>)" <file>'
+
+hi Hint font: bold 18px "Droid Sans Mono", monospace !important; margin: -.2ex; padding: 0 0 0 1px; outline: 2px solid rgba(0, 43, 54, .5); background: rgba(0, 0, 0, 1); color: green;
+
+
+" default search engine
+set defsearch=duckduckgo
+
+set hlfind
+
+map -modes=c,i,n,t,v <C-a> <Pass>
+map -modes=c,i,n,t,v <C-c> <Pass>
+map -modes=c,i,t <C-v> <Pass>
+map -modes=c,i,t <C-x> <Pass>
+map -modes=c,i,t <C-z> <Pass>
+
+
+set nextpattern=\s*下一页|下一张|下一篇|下页|后页\s*,^\bnext\b,\\bnext\\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\\bmore\\b
+set previouspattern=\s*上一页|上一张|上一篇|上页|前页\s*,^\bprev|previous\b,\\bprev|previous\\b,^<$,^(<<|«)$,^(<|«),(<|«)$
+
+" vim: set ft=pentadactyl:
