@@ -5,13 +5,9 @@ group user
 
 set titlestring="Firefox"
 
-set mapleader=;
-
 " scroll
 nmap -builtin j 10j
 nmap -builtin k 10k
-
-set hintkeys=asdfglkjh
 
 set editor='gvim -f +<line> +"sil! call cursor(0, <column>)" <file>'
 
@@ -19,7 +15,7 @@ hi Hint font: bold 18px "Droid Sans Mono", monospace !important; margin: -.2ex; 
 
 
 " default search engine
-set defsearch=duckduckgo
+set defsearch=google
 
 set hlfind
 
@@ -29,8 +25,15 @@ map -modes=c,i,t <C-v> <Pass>
 map -modes=c,i,t <C-x> <Pass>
 map -modes=c,i,t <C-z> <Pass>
 
+map -modes=n  wiki :topen http://127.0.0.1:4000<cr>
+map -modes=n  blog :topen http://fishcried.com<cr>
+map -modes=n  baidu  :topen http://www.baidu.com<cr>
+map -modes=n  doit :topen https://i.doitim.com/home/#/today<cr>
+map -modes=n  ops  :topen  http://192.168.250.11/horizon<cr>
+map -modes=n  yhr  :topen  http://192.168.200.9/horizon<cr>
+map -modes=n  neunn  :topen  http://192.168.250.3:8090<cr>
 
-set nextpattern=\s*下一页|下一张|下一篇|下页|后页\s*,^\bnext\b,\\bnext\\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\\bmore\\b
-set previouspattern=\s*上一页|上一张|上一篇|上页|前页\s*,^\bprev|previous\b,\\bprev|previous\\b,^<$,^(<<|«)$,^(<|«),(<|«)$
+
+
 
 " vim: set ft=pentadactyl:
