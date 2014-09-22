@@ -39,7 +39,7 @@ export LANGUAGE=en_US.UTF-8
 
 #export SVN_EDITOR=vim
 
-export PATH=$PATH:/usr/local/bin:~/Bin
+export PATH=$PATH:/usr/local/bin:~/Bin:~/Draft-bin:
 export HISTTIMEFORMAT='%F %T '
 
 
