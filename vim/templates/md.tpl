@@ -5,7 +5,6 @@ description: ""
 category: 
 tags: []
 ---
-{% include JB/setup %}
 
 # 变更记录
 
