@@ -1,183 +1,148 @@
-set nocompatible
+"==============================================================================
+" Author: fishcried
+" Homepage: http://www.fishcried.com
+" Source:  https://github.com/linux_profile/
+"==============================================================================
 
-let mapleader = ";"
-let g:mapleader= ";"
-
-set history=700
-set showcmd
-set autoread
-
-filetype plugin on
-filetype indent on
-
-set so=7 "set 7 lines  to the cursos  when moving vertical..
-set ruler " always show current position
-set cmdheight=2 " the commandbar height
-set hid " change buffer - without saving
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
-"set ignorecase
-set smartcase
-set hlsearch 
-set incsearch
-set magic "set magic on, for regular expressions
-"set autochdir
-set showmatch
-set nowrapscan
-" No sound when errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
-set laststatus=2
-set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\
-
-syntax enable
-colorscheme desert
-set background=dark
-set nu
-set encoding=utf8
-set fileencodings=utf-8,chinese,euc-cn
-
-set nobackup
-set foldmethod=syntax
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set expandtab
-set autoindent
-set smarttab
-set smartindent
-set wrap
-
-
-autocmd! bufwritepost *.vimrc source $HOME/.vimrc
-function g:set_code_stype_by_filetype()
-	if  &filetype == "c"
-		set shiftwidth=8
-		set tabstop=8
-		set cindent
-	elseif &filetype == "python"
-		set shiftwidth=4
-		set tabstop=4
-		set expandtab
-	elseif &filetype == "vimwiki"
-		set shiftwidth=4
-		set tabstop=4
-	else
-		set shiftwidth=4
-		set tabstop=4
+" 通过vundle管理插件   {{{
+	set nocompatible
+	filetype off
+	let has_vundle = 1
+	if !isdirectory(expand("~/.vim/bundle/Vundle.vim/.git"))
+		!git clone https://github.com/gmarik/Vundle.vim.git 
+					\~/.vim/bundle/Vundle.vim
+		let has_vundle = 0
 	endif
-endfunction
 
-autocmd FileType * call g:set_code_stype_by_filetype()
-autocmd BufNewFile,BufRead *.sls set shiftwidth=2 tabstop=2 expandtab
+	set rtp+=~/.vim/bundle/Vundle.vim
 
-" load templates
-autocmd BufNewFile *.md 0r ~/.vim/templates/md.tpl
-autocmd BufNewFile *.py 0r ~/.vim/templates/py.tpl
-autocmd BufNewFile *.sh 0r ~/.vim/templates/sh.tpl
+	call vundle#begin()
+	" 自我管理
+	Plugin 'gmarik/Vundle.vim'
+	"Plugin 'honza/vim-snippets'
+	Plugin 'c.vim'
+	"Plugin 'ervandew/supertab'
+	"Plugin 'bufexplorer.zip'
+	"Plugin 'fholgado/minibufexpl.vim'
+	"Plugin 'winmanager'
+	"Plugin 'taglist.vim'
+	"Plugin 'Lokaltog/vim-powerline'
+	"Plugin 'mileszs/ack.vim'
+	"Plugin 'scrooloose/nerdtree'
+	"Plugin 'kien/ctrlp.vim'
+	"Plugin 'benmills/vimux'
+	Plugin 'plasticboy/vim-markdown'
 
 
-nmap <space> :
-nmap <leader>s :w<cr>
-nmap <leader>q :q<cr>
-nmap <leader>e :e! ~/.vimrc<cr>
-map <silent> <leader><cr> :noh<cr>
-map <right> :bn<cr>
-map <right> :bp<cr>
-map <c-p> :tabprevious<cr>
-map <c-n> :tabnext<cr>
+	call vundle#end()
+	filetype plugin indent on
 
-map <leader>tn :tabnew<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
-
-nmap <leader>bug :r ~/.vim/templates/bug_fix.temp<cr>
-
-let g:changelog_tpl = "~/.vim/templates/changelog.tpl"
-function g:changelog()
-	let logo = strftime("%Y-%m-%d %T ") . "fishcried@163.com"
-	call setline(".", logo)
-	if exists(g:changelog_tpl)
-		:r g:changelog_tpl
-	else
-		echo "no template file for changelog"
+	if has_vundle == 0
+		:silent! PluginInstall
 	endif
-endfunction
-nmap <leader>clog :call g:changelog()<cr>
+"}}}
 
 
-iab idate <c-r>=strftime("%Y-%m-%d")<CR>
-iab itime <c-r>=strftime("%H:%M")<CR>
-iab imail Wangtian qing <tianqing.w@gmail.com><CR>
+" 加载基础函数 {{{
+	source $HOME/.vim/configs/variables.vim
+	source $HOME/.vim/configs/functions.vim
+" }}}
+"
+" 通用设置 {{{
+	filetype on
+	filetype plugin on
+	set history=500
+	set autoread
+	syntax enable		" 开启语法高亮
+	set foldmethod=syntax "折叠
 
-let g:vimwiki_list = [{'path': '~/Documents/vimwiki/wiki/', 
-			\'path_html': '~/Documents/vimwiki/wiki_html/',
-			\'template_path' : '~/Documents/vimwiki/wiki_html/template/',
-			\'template_default' : 'default_template.tpl',
-			\'template_ext' : '.html' },
-			\{'path': '~/Documents/markdown/', 
-			\'syntax': 'markdown'}]
-let g:vimwiki_valid_html_tags = ''
-let g:vimwiki_file_exts = 'c,txt,h,sh,python,pdf'
-let g:vimwiki_camel_case = 1
-let g:vimwiki_h1_cb_checked = 1
-let g:vimwiki_menu = ''
-let g:vimwiki_folding = 1
-let g:vimwiki_CJK_length = 1
+	set encoding=utf8 " 文件编码
+	set fileencodings=utf-8,chinese,euc-cn "文件解码
 
-nmap <leader>tl :Tlist<cr>
-let Tlist_Ctags_Cmd='ctags'
-let Tlist_Use_Right_Window=1
-let Tlist_File_Fold_Auto_Close=1
-let Tlist_Exit_OnlyWindow=1
-let Tlist_Show_One_File=0
-let Tlist_Process_File_Always=1
-let Tlist_Inc_Winwidth=0
+	set number	" 行号
+	set numberwidth=4
 
+	set mouse= "禁用鼠标
 
-"let g:winManagerWindowLayout="FileExplorer|TagList"
-let g:winManagerWindowLayout="TagList|FileExplorer,BufExplorer"
-let g:persistentBehaviour=0
-let g:winManagerWidth=30
-nmap <silent> <F8> :WMToggle<cr>
+	" 匹配与高亮设置 {{{
+		set hlsearch 
+		set ignorecase
+		set smartcase
+		set incsearch
+		set showmatch
+	"}}}
+	" 出错后警告设置 {{{
+		set noerrorbells
+		set novisualbell
+		set t_vb=
+		set tm=500
+	" }}}
 
-let g:minBufExplMapWindowNavVim=1
-let g:miniBufExplMapWindowNavArrows=1
-let g:miniBufExplMapCTabSwitchBufs=1  
-let g:miniBufExplModSelTarget=1  
+	" 缩进 {{{
+		filetype indent on
+		set autoindent
+		set smarttab
+		set smartindent
+	" }}}
 
-" Auto load cscope.out
-if filereadable("cscope.out")
-	cs add cscope.out
-endif
+	" 补全设置 {{{
+		set dictionary+=/usr/share/dict/words
+	"}}}
 
-let g:C_MapLeader=';'
+	" 行宽设置{{{
+		match ErrorMsg /\%>79v.\+/
+		set textwidth=79
+		set wrap
+	"}}}
 
-nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+	" 设置session {{{
+		autocmd VimEnter * call g:LoadSession()
+		autocmd VimLeave * call g:SaveSession()
+	"}}}
+	
+	" 备份设置 {{{
+		set nobackup
+		set nowritebackup
+	"}}}
+	
+	" UI {{{
+		set laststatus=2
+		set statusline=%F%m%r%h%w\ [FMT=%{&ff}/%{&encoding}/%Y]
+					\\ [ASC=\%03.3b][HEX=\%02.2B]\ [POS=%04l,%04v\ %p%%/%L]
+		colorscheme desert
+		set showcmd
+		set cmdheight=1
+		set cursorline
+		set cursorcolumn
+	"}}}
+	
+	" vimrc触发 {{{
+		autocmd! bufwritepost *.vimrc source $HOME/.vimrc
+	"}}}
+" }}}
 
-nmap <C-w><C-\>s :scs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-w><C-\>g :scs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-w><C-\>c :scs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-w><C-\>t :scs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-w><C-\>e :scs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-w><C-\>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-w><C-\>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-w><C-\>d :scs find d <C-R>=expand("<cword>")<CR><CR>
+" 代码风格设置 {{{
+	set shiftwidth=4
+	set tabstop=4
+	autocmd BufNewFile,BufRead *.sls set shiftwidth=2 tabstop=2 expandtab
+	autocmd BufNewFile,BufRead *.c,*.h set shiftwidth=8 tabstop=8 
+	autocmd BufNewFile,BufRead *.py set shiftwidth=4 tabstop=4 expandtab
+"}}}
 
-nmap <leader>p :set paste<cr>
-nmap <leader>np :set nopaste<cr>
+" 加载模版 {{{
+	autocmd BufNewFile * silent call g:LoadTemplate('%:e')
+"}}}
 
+" 加载abbr配置 {{{
+	source $HOME/.vim/configs/abbreviations.vim
+"}}}
 
-" conque_term
-nmap <leader>tb :ConqueTermSplit bash<cr>
+" 加载映射配置 {{{
+	source $HOME/.vim/configs/mapping.vim
+"}}}
+
+" 加载插件设置 {{{
+	source $HOME/.vim/configs/cscope.vim
+	source $HOME/.vim/configs/winmanager.vim
+	source $HOME/.vim/configs/ctags.vim
+" }}}
