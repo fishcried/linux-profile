@@ -21,12 +21,24 @@ then
 	tmux split-window -v -t $SNAME:2
 	tmux send-keys  -t $SNAME:2.2 'jump blog' C-m
 
-	# (3)
+	# (3) load ssh keys
 	tmux new-window -t $SNAME -n Load-ssh-keys
 	tmux send-keys -t $SNAME:3  'load-ssh-keys.sh' C-m
+
+	# (4) Login Config Node
+	tmux new-window -t $SNAME -n Config-Node
+	tmux send-keys -t $SNAME:4  'ssh ubuntu@192.168.250.20' C-m
+
+	# (5) Login Keystone Node
+	tmux new-window -t $SNAME -n Keystone-Node
+	tmux send-keys -t $SNAME:5  'ssh ubuntu@192.168.250.11' C-m
+
+	# (5) Login Network Node
+	tmux new-window -t $SNAME -n Network-Node
+	tmux send-keys -t $SNAME:6  'ssh ubuntu@192.168.250.6' C-m
 	
 	# Start out on the BlOG window when we attach
-	tmux select-window -t $SNAME
+	tmux select-window -t:2
 
 fi
 
