@@ -4,3 +4,4 @@ self:
   - tmux
   - tools
   - vim
+  - bash

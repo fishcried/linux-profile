@@ -22,16 +22,6 @@ alias gitlg="git log --pretty=format:'%h %ad | %s% [%an]' --graph -- date=short"
 alias indent='indent -kr -i8 -ts8 -sob -l80 -ss -bs -psl'
 alias cgrep="grep -nr --include *.[ch] "
 
-
-# for blog
-
-# for screen
-alias scn="screen"
-
-# config hla
-export hlalib=/usr/hla/hlalib
-export hlainc=/usr/hla/include
-
 # set language and decode
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -57,4 +47,3 @@ function unmark {
 function marks {
 	ls -l "$MARKPATH" | awk '{if (NR != 1) { printf "%s\t->\t%s\n", $9,$11}}'
 }
-
