@@ -5,3 +5,4 @@ self:
   - tools
   - vim
   - bash
+  - firefox

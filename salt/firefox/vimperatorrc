@@ -1,0 +1,21 @@
+"3.8.2 (created: 2014/02/13 23:52:43)
+
+source! /home/fishcried/.vimperatorrc.local
+
+set defsearch=google
+let mapleader=";"
+
+hi Hint font: bold 18px "Droid Sans Mono", monospace !important; margin: -.2ex; padding: 0 0 0 1px; outline: 2px solid rgba(0, 43, 54, .5); background: rgba(0, 0, 0, 1); color: green;
+
+noremap j 10j
+noremap k 10k
+
+noremap  <Leader>wiki :topen http://127.0.0.1:4000<cr>
+noremap  <Leader>blog :topen http://fishcried.com<cr>
+noremap  <Leader>baidu  :topen http://www.baidu.com<cr>
+noremap  <Leader>doit :topen https://i.doitim.com/home/#/today<cr>
+noremap  <Leader>ops  :topen  http://192.168.250.11/horizon<cr>
+noremap  <Leader>yhr  :topen  http://192.168.200.9/horizon<cr>
+noremap  <Leader>neunn  :topen  http://192.168.250.3:8090<cr>
+
+" vim: set ft=vimperator:
