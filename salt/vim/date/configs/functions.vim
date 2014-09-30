@@ -4,11 +4,14 @@ endfunction
 
 
 function! g:SaveSession()
+	if !isdirectory(expand("~/.vim/sessions"))
+		!mkdir ~/.vim/sessions
+	endif
 	execute 'mksession! $HOME/.vim/sessions/session.vim'
 endfunction
 
 function! g:LoadSession()
 	if argc() == 0
-		execute 'source $HOME/.vim/sessions/session.vim'
+		silent! execute 'source $HOME/.vim/sessions/session.vim'
 	endif
 endfunction

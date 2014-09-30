@@ -19,20 +19,18 @@
 	call vundle#begin()
 	" 自我管理
 	Plugin 'gmarik/Vundle.vim'
-	"Plugin 'honza/vim-snippets'
+	Plugin 'honza/vim-snippets'
 	Plugin 'c.vim'
-	"Plugin 'ervandew/supertab'
-	"Plugin 'bufexplorer.zip'
-	"Plugin 'fholgado/minibufexpl.vim'
-	"Plugin 'winmanager'
-	"Plugin 'taglist.vim'
-	"Plugin 'Lokaltog/vim-powerline'
-	"Plugin 'mileszs/ack.vim'
-	"Plugin 'scrooloose/nerdtree'
-	"Plugin 'kien/ctrlp.vim'
-	"Plugin 'benmills/vimux'
+	Plugin 'ervandew/supertab'
+	Plugin 'bufexplorer.zip'
+	Plugin 'fholgado/minibufexpl.vim'
+	Plugin 'winmanager'
+	Plugin 'taglist.vim'
+	Plugin 'scrooloose/nerdtree'
+	Plugin 'benmills/vimux'
 	Plugin 'plasticboy/vim-markdown'
-
+	"Plugin 'kien/ctrlp.vim'
+	"Plugin 'mileszs/ack.vim'
 
 	call vundle#end()
 	filetype plugin indent on
@@ -112,8 +110,6 @@
 		colorscheme desert
 		set showcmd
 		set cmdheight=1
-		set cursorline
-		set cursorcolumn
 	"}}}
 	
 	" vimrc触发 {{{

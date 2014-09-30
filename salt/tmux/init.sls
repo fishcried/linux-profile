@@ -8,6 +8,8 @@ tmux-config:
   file.managed:
     - name: /home/{{pillar['user']}}/.tmux.conf
     - source: salt://tmux/tmux.conf
+    - group: {{pillar['user']}}
+    - user: {{pillar['user']}}
     - template: jinja
     - require:
       - pkg.installed: tmux-pkgs
