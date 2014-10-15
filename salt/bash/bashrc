@@ -1,0 +1,49 @@
+HISTCONTROL=ignoreboth
+HISTSIZE=1000
+HISTFILESIZE=2000
+shopt -s histappend
+export HISTTIMEFORMAT='%F %T '
+
+shopt -s checkwinsize
+
+# set language and decode
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+
+if [ -z "$PS1" ]; then
+    PS1='\u@\h:\w\$ '
+fi
+export PATH=$PATH:/usr/local/bin:~/Bin:~/Draft-bin:
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+# quick switch path
+export MARKPATH=$HOME/.marks
+function jump {
+	cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+}
+function mark {
+	mkdir -p "$MARKPATH/" ; ln -s "$(pwd)" "$MARKPATH/$1"
+}
+function unmark {
+	rm -i "$MARKPATH/$1"
+}
+function marks {
+	ls -l "$MARKPATH" | awk '{if (NR != 1) { printf "%s\t->\t%s\n", $9,$11}}'
+}
+
+# config virtualenv
+if [ -e /usr/local/bin/virtualenvwrapper.sh ];then
+	. /usr/local/bin/virtualenvwrapper.sh
+fi

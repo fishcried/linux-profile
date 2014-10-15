@@ -79,7 +79,6 @@
 	" 缩进 {{{
 		filetype indent on
 		set autoindent
-		set smarttab
 		set smartindent
 	" }}}
 
@@ -90,7 +89,7 @@
 	" 行宽设置{{{
 		match ErrorMsg /\%>79v.\+/
 		set textwidth=79
-		set wrap
+		set nowrap
 	"}}}
 
 	" 设置session {{{
@@ -121,8 +120,10 @@
 	set shiftwidth=4
 	set tabstop=4
 	autocmd BufNewFile,BufRead *.sls set shiftwidth=2 tabstop=2 expandtab
-	autocmd BufNewFile,BufRead *.c,*.h set shiftwidth=8 tabstop=8 
+	autocmd BufNewFile,BufRead *.c,*.h set shiftwidth=8 tabstop=8 cindent
 	autocmd BufNewFile,BufRead *.py set shiftwidth=4 tabstop=4 expandtab
+	autocmd BufNewFile,BufRead *.md set shiftwidth=4 tabstop=4 expandtab 
+				\ |set textwidth=100 | match ErrorMsg /\%>100v.\+/
 "}}}
 
 " 加载模版 {{{

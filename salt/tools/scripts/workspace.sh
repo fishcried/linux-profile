@@ -18,8 +18,8 @@ then
 	tmux new-window -t $SNAME -n BLOG
 	tmux send-keys -t $SNAME:2  'jump blog && jekyll server -D --watch' C-m
 	# (2/2)BLOG/Jekyll Editor
-	tmux split-window -v -t $SNAME:2
-	tmux send-keys  -t $SNAME:2.2 'jump blog' C-m
+	#tmux split-window -v -t $SNAME:2
+	#tmux send-keys  -t $SNAME:2.2 'jump blog' C-m
 
 	# (3) load ssh keys
 	tmux new-window -t $SNAME -n Load-ssh-keys
@@ -33,9 +33,13 @@ then
 	tmux new-window -t $SNAME -n Keystone-Node
 	tmux send-keys -t $SNAME:5  'ssh ubuntu@192.168.250.11' C-m
 
-	# (5) Login Network Node
+	# (6) Login Network Node
 	tmux new-window -t $SNAME -n Network-Node
 	tmux send-keys -t $SNAME:6  'ssh ubuntu@192.168.250.6' C-m
+
+	# (7) Timing
+	tmux new-window -t $SNAME -n Timing
+	tmux send-keys -t $SNAME:7  'time read' C-m
 	
 	# Start out on the BlOG window when we attach
 	tmux select-window -t:2

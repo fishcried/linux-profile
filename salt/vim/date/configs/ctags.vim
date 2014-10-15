@@ -8,3 +8,4 @@ let Tlist_Process_File_Always=1
 let Tlist_Inc_Winwidth=0
 
 nmap <leader>tl :Tlist<cr>
+map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR> 

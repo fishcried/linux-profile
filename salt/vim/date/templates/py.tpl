@@ -1,6 +1,12 @@
 #!/bin/env python
+# -*- coding: utf-8 -*-
 #
 # The MIT License (MIT)
-# Copyright (c) 2014 fishcried(tianqing.w@gmail.com)
 #
+# Copyright © 2014 fishcried(tianqing.w@gmail.com)
+#
+
+"""
+
+"""
 

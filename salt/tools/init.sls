@@ -4,3 +4,4 @@ install-tools-scripts:
     - name: /home/{{pillar['user']}}/Bin/
     - group: {{pillar['user']}}
     - user: {{pillar['user']}}
+    - file_mode: 775
