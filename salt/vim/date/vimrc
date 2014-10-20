@@ -142,4 +142,5 @@
 	source $HOME/.vim/configs/cscope.vim
 	source $HOME/.vim/configs/winmanager.vim
 	source $HOME/.vim/configs/ctags.vim
+	source $HOME/.vim/configs/highlight.vim
 " }}}
