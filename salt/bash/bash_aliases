@@ -30,3 +30,6 @@ alias gitlg="git log --pretty=format:'%h %ad | %s% [%an]' --graph -- date=short"
 # format for c files
 alias indent='indent -kr -i8 -ts8 -sob -l80 -ss -bs -psl'
 alias cgrep="grep -nr --include *.[ch] "
+
+# clear
+alias cl='clear'

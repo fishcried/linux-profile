@@ -29,8 +29,9 @@
 	Plugin 'scrooloose/nerdtree'
 	Plugin 'benmills/vimux'
 	Plugin 'plasticboy/vim-markdown'
-	"Plugin 'kien/ctrlp.vim'
-	"Plugin 'mileszs/ack.vim'
+	Plugin 'kien/ctrlp.vim'
+	Plugin 'reedes/vim-one'
+    "Plugin 'bling/vim-airline'
 
 	call vundle#end()
 	filetype plugin indent on
@@ -56,6 +57,8 @@
 
 	set encoding=utf8 " 文件编码
 	set fileencodings=utf-8,chinese,euc-cn "文件解码
+
+    set hidden "切换buffer的时候不必必须保存
 
 	set number	" 行号
 	set numberwidth=4
@@ -87,8 +90,8 @@
 	"}}}
 
 	" 行宽设置{{{
-		match ErrorMsg /\%>79v.\+/
-		set textwidth=79
+		"match ErrorMsg /\%>79v.\+/
+		"set textwidth=79
 		set nowrap
 	"}}}
 
@@ -121,9 +124,10 @@
 	set tabstop=4
 	autocmd BufNewFile,BufRead *.sls set shiftwidth=2 tabstop=2 expandtab
 	autocmd BufNewFile,BufRead *.c,*.h set shiftwidth=8 tabstop=8 cindent
-	autocmd BufNewFile,BufRead *.py set shiftwidth=4 tabstop=4 expandtab
-	autocmd BufNewFile,BufRead *.md set shiftwidth=4 tabstop=4 expandtab 
-				\ |set textwidth=100 | match ErrorMsg /\%>100v.\+/
+				\ |set textwidth=80 | match ErrorMsg /\%>80v.\+/
+	autocmd BufNewFile,BufRead *.py set shiftwidth=4 tabstop=4 expandtab 
+				\ |set textwidth=80 | match ErrorMsg /\%>80v.\+/
+	autocmd BufNewFile,BufRead *.md set shiftwidth=4 tabstop=4 
 "}}}
 
 " 加载模版 {{{
@@ -143,4 +147,12 @@
 	source $HOME/.vim/configs/winmanager.vim
 	source $HOME/.vim/configs/ctags.vim
 	source $HOME/.vim/configs/highlight.vim
+	source $HOME/.vim/configs/vimux.vim
+	source $HOME/.vim/configs/ctrlp.vim
 " }}}
+
+" Enable the list of buffers
+"let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+"let g:airline#extensions#tabline#fnamemod = ':t'

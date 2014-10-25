@@ -14,7 +14,9 @@ export LANGUAGE=en_US.UTF-8
 if [ -z "$PS1" ]; then
     PS1='\u@\h:\w\$ '
 fi
+
 export PATH=$PATH:/usr/local/bin:~/Bin:~/Draft-bin:
+export PS4='+${BASH_SOURCE}:${LINENO}:${FUNCNAME[0]}: '
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -47,3 +49,5 @@ function marks {
 if [ -e /usr/local/bin/virtualenvwrapper.sh ];then
 	. /usr/local/bin/virtualenvwrapper.sh
 fi
+
+. ~/.vimone.sh
