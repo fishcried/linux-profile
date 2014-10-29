@@ -30,7 +30,8 @@ map <leader>tm :tabmove
 nnoremap <Leader>l :ls<CR>
 nnoremap <Leader>b :bp<CR>
 nnoremap <Leader>f :bn<CR>
-nnoremap <Leader>g :e#<CR>
+nnoremap <Leader>g :c#<CR>
+nnoremap <Leader>d :bd<CR>
 nnoremap <Leader>1 :1b<CR>
 nnoremap <Leader>2 :2b<CR>
 nnoremap <Leader>3 :3b<CR>
@@ -61,3 +62,11 @@ nmap <leader>np :set nopaste<cr>
 nmap <buffer> <CR> <C-]>
 nmap <buffer> <BS> <C-T>
 map <leader>help <ESC>:exec "help ".expand("<cWORD>")<CR>
+
+" 配置quickfix
+nmap <leader>cn :cn<cr>
+nmap <leader>cp :cp<cr>
+nmap <leader>cw :cw 10<cr>
+
+" 配置ack.vim配置
+nmap <leader>ack :Ack 

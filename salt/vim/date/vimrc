@@ -31,6 +31,7 @@
 	Plugin 'plasticboy/vim-markdown'
 	Plugin 'kien/ctrlp.vim'
 	Plugin 'reedes/vim-one'
+    Plugin 'mileszs/ack.vim'
     "Plugin 'bling/vim-airline'
 
 	call vundle#end()
@@ -92,12 +93,12 @@
 	" 行宽设置{{{
 		"match ErrorMsg /\%>79v.\+/
 		"set textwidth=79
-		set nowrap
+		set wrap
 	"}}}
 
 	" 设置session {{{
-		autocmd VimEnter * call g:LoadSession()
-		autocmd VimLeave * call g:SaveSession()
+		"autocmd VimEnter * call g:LoadSession()
+		"autocmd VimLeave * call g:SaveSession()
 	"}}}
 	
 	" 备份设置 {{{
@@ -127,7 +128,7 @@
 				\ |set textwidth=80 | match ErrorMsg /\%>80v.\+/
 	autocmd BufNewFile,BufRead *.py set shiftwidth=4 tabstop=4 expandtab 
 				\ |set textwidth=80 | match ErrorMsg /\%>80v.\+/
-	autocmd BufNewFile,BufRead *.md set shiftwidth=4 tabstop=4 
+	autocmd BufNewFile,BufRead *.md set shiftwidth=4 tabstop=4 expandtab
 "}}}
 
 " 加载模版 {{{
