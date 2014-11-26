@@ -5,7 +5,7 @@ vim-pkgs:
 vim-config:
   file.recurse:
     - source: salt://vim/date
-    - name: {{pillar['userhomehome']}}/.vim
+    - name: {{pillar['userhome']}}/.vim
     - user: {{pillar['user']}}
     - group: {{pillar['user']}}
     - require:
@@ -14,7 +14,7 @@ vim-config:
 vimrc:
   file.managed:
     - source: salt://vim/date/vimrc  
-    - name: {{pillar['userhomehome']}}/.vimrc
+    - name: {{pillar['userhome']}}/.vimrc
     - user: {{pillar['user']}}
     - group: {{pillar['user']}}
     - require:
