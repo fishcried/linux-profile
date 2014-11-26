@@ -18,3 +18,10 @@ vimone.sh:
     - name: /home/{{pillar['user']}}/.vimone.sh
     - group: {{pillar['user']}}
     - user: {{pillar['user']}}
+
+git-completion.bash:
+  file.managed:
+    - source: salt://bash/git-completion.bash
+    - name: /home/{{pillar['user']}}/.git-completion.bash
+    - group: {{pillar['user']}}
+    - user: {{pillar['user']}}

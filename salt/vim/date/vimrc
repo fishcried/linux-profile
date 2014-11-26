@@ -23,7 +23,7 @@
 	Plugin 'c.vim'
 	Plugin 'ervandew/supertab'
 	Plugin 'bufexplorer.zip'
-	Plugin 'fholgado/minibufexpl.vim'
+	"Plugin 'fholgado/minibufexpl.vim'
 	Plugin 'winmanager'
 	Plugin 'taglist.vim'
 	Plugin 'scrooloose/nerdtree'
@@ -32,7 +32,12 @@
 	Plugin 'kien/ctrlp.vim'
 	Plugin 'reedes/vim-one'
     Plugin 'mileszs/ack.vim'
-    "Plugin 'bling/vim-airline'
+    Plugin 'bling/vim-airline'
+	Plugin 'BufLine'
+	Plugin 'tpope/vim-fugitive'
+	Plugin 'ShowMarks'
+
+
 
 	call vundle#end()
 	filetype plugin indent on
@@ -65,6 +70,8 @@
 	set numberwidth=4
 
 	set mouse= "禁用鼠标
+
+	set t_Co=256
 
 	" 匹配与高亮设置 {{{
 		set hlsearch 
@@ -128,7 +135,7 @@
 				\ |set textwidth=80 | match ErrorMsg /\%>80v.\+/
 	autocmd BufNewFile,BufRead *.py set shiftwidth=4 tabstop=4 expandtab 
 				\ |set textwidth=80 | match ErrorMsg /\%>80v.\+/
-	autocmd BufNewFile,BufRead *.md set shiftwidth=4 tabstop=4 expandtab
+	autocmd BufNewFile,BufRead *.md set shiftwidth=2 tabstop=2 expandtab
 "}}}
 
 " 加载模版 {{{
@@ -150,10 +157,5 @@
 	source $HOME/.vim/configs/highlight.vim
 	source $HOME/.vim/configs/vimux.vim
 	source $HOME/.vim/configs/ctrlp.vim
+	source $HOME/.vim/configs/showmarks.vim
 " }}}
-
-" Enable the list of buffers
-"let g:airline#extensions#tabline#enabled = 1
-
-" Show just the filename
-"let g:airline#extensions#tabline#fnamemod = ':t'

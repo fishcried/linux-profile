@@ -51,3 +51,4 @@ if [ -e /usr/local/bin/virtualenvwrapper.sh ];then
 fi
 
 . ~/.vimone.sh
+. ~/.git-completion.bash

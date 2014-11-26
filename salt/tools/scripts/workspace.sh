@@ -26,7 +26,7 @@ function openstack_workspace()
 
 		# (4) Login Network Node
 		tmux new-window -t $SNAME -n Network-Node
-		tmux send-keys -t $SNAME:4  'ssh ubuntu@192.168.250.6' C-m
+		tmux send-keys -t $SNAME:4  'ssh ubuntu@192.168.250.16' C-m
 
 		tmux select-window -t $SNAME:2
 	fi

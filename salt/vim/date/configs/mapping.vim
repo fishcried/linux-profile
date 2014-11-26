@@ -67,6 +67,7 @@ map <leader>help <ESC>:exec "help ".expand("<cWORD>")<CR>
 nmap <leader>cn :cn<cr>
 nmap <leader>cp :cp<cr>
 nmap <leader>cw :cw 10<cr>
+nmap <leader>cc :cclose<cr>
 
 " 配置ack.vim配置
 nmap <leader>ack :Ack 
