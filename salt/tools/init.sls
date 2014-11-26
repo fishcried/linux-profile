@@ -1,7 +1,7 @@
 install-tools-scripts:
   file.recurse:
     - source: salt://tools/scripts
-    - name: /home/{{pillar['user']}}/Bin/
+    - name: {{pillar['userhomehome']}}/Bin/
     - group: {{pillar['user']}}
     - user: {{pillar['user']}}
     - file_mode: 775

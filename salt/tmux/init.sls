@@ -6,7 +6,7 @@ tmux-pkgs:
 
 tmux-config:
   file.managed:
-    - name: /home/{{pillar['user']}}/.tmux.conf
+    - name: {{pillar['userhome']}}/.tmux.conf
     - source: salt://tmux/tmux.conf
     - group: {{pillar['user']}}
     - user: {{pillar['user']}}
