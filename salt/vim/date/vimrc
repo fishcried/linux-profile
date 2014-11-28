@@ -23,7 +23,7 @@
 	Plugin 'c.vim'
 	Plugin 'ervandew/supertab'
 	Plugin 'bufexplorer.zip'
-	"Plugin 'fholgado/minibufexpl.vim'
+	Plugin 'TabBar'
 	Plugin 'winmanager'
 	Plugin 'taglist.vim'
 	Plugin 'scrooloose/nerdtree'
@@ -32,11 +32,6 @@
 	Plugin 'kien/ctrlp.vim'
 	Plugin 'reedes/vim-one'
     Plugin 'mileszs/ack.vim'
-    Plugin 'bling/vim-airline'
-	Plugin 'BufLine'
-	Plugin 'tpope/vim-fugitive'
-	Plugin 'ShowMarks'
-
 
 
 	call vundle#end()
@@ -157,5 +152,4 @@
 	source $HOME/.vim/configs/highlight.vim
 	source $HOME/.vim/configs/vimux.vim
 	source $HOME/.vim/configs/ctrlp.vim
-	source $HOME/.vim/configs/showmarks.vim
 " }}}
