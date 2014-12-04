@@ -23,7 +23,7 @@
 	Plugin 'c.vim'
 	Plugin 'ervandew/supertab'
 	Plugin 'bufexplorer.zip'
-	Plugin 'TabBar'
+	Plugin 'ap/vim-buftabline'
 	Plugin 'winmanager'
 	Plugin 'taglist.vim'
 	Plugin 'scrooloose/nerdtree'
@@ -32,6 +32,7 @@
 	Plugin 'kien/ctrlp.vim'
 	Plugin 'reedes/vim-one'
     Plugin 'mileszs/ack.vim'
+	Plugin 'fcitx.vim'
 
 
 	call vundle#end()
@@ -152,4 +153,5 @@
 	source $HOME/.vim/configs/highlight.vim
 	source $HOME/.vim/configs/vimux.vim
 	source $HOME/.vim/configs/ctrlp.vim
+	source $HOME/.vim/configs/buftabline.vim
 " }}}
