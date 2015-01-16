@@ -7,8 +7,8 @@
 vimone=~/.vim/bundle/vim-one/bin/onevim
 if [ -x $vimone ];then
 	export  VIM_APP_DIR=/usr
-	[ -e $HOME/Bin/vime ] && ln -s $vimone $HOME/Bin/vime
-	[ -e $HOME/Bin/vimv ] && ln -s $vimone $HOME/Bin/vimv
-	[ -e $HOME/Bin/vims ] && ln -s $vimone $HOME/Bin/vims
-	[ -e $HOME/Bin/vimt ] && ln -s $vimone $HOME/Bin/vimt
+	[ ! -e $HOME/Bin/vime ] && ln -s $vimone $HOME/Bin/vime
+	[ ! -e $HOME/Bin/vimv ] && ln -s $vimone $HOME/Bin/vimv
+	[ ! -e $HOME/Bin/vims ] && ln -s $vimone $HOME/Bin/vims
+	[ ! -e $HOME/Bin/vimt ] && ln -s $vimone $HOME/Bin/vimt
 fi
