@@ -42,7 +42,7 @@ config_vim() {
 	LOG "Begin config Vim ..."
 	
 	$SYNC_DIR  vim/date/ $HOME/.vim/
-	$SYNC_FILE vim/vimrc $HOME/vimrc
+	$SYNC_FILE vim/vimrc $HOME/.vimrc
 
 	LOG "End config Vim ..."
 }
