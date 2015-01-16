@@ -58,11 +58,8 @@ TARGETS="vim    \
 
 for t in $TARGETS
 do
-	if [ $t == "scripts" ];then
-		continue
-	fi
 
-	if [ $(which $t | grep -vi $t) ];then
+	if [ $t != "scripts" ] && [ $(which $t | grep -vi $t) ];then
 		LOG "Error: $t not install, please install it."
 		continue
 	fi
