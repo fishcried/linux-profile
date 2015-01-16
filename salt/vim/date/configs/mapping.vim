@@ -71,3 +71,8 @@ nmap <leader>cc :cclose<cr>
 
 " 配置ack.vim配置
 nmap <leader>ack :Ack 
+nmap <leader>ackw :call Search_Word()<cr>
+function Search_Word()
+	let w = expand("<cword>")
+	execute "Ack " . w 
+endfunction
