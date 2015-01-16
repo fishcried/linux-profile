@@ -31,11 +31,11 @@ config_tmux() {
 
 }
 
-config_tools() {
-	LOG "Begin config Tools ..."
-	$SYNC_DIR tools/scripts $HOME/Bin/
+config_scripts() {
+	LOG "Begin config Scripts ..."
+	$SYNC_DIR scripts/ $HOME/Bin/
 	chmod u+x $HOME/Bin/*
-	LOG "End config Tools ..."
+	LOG "End config Scripts..."
 }
 
 config_vim() {
@@ -51,14 +51,14 @@ SYNC_FILE="rsync -vl"
 SYNC_DIR="rsync -vlr"
 
 TARGETS="vim    \
-		tools   \
+		scripts   \
 		bash    \
 		firefox \
 		tmux"
 
 for t in $TARGETS
 do
-	if [ $t == "tools" ];then
+	if [ $t == "scripts" ];then
 		continue
 	fi
 
