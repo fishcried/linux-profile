@@ -20,7 +20,9 @@ config_bash() {
 	LOG "Begin config Bash ..."
 	$SYNC_FILE bash/git-completion.bash $HOME/.git-completion.bash
 	$SYNC_FILE bash/bash_aliases $HOME/.bash_aliases
+	$SYNC_FILE bash/install-vimone.sh $HOME/.install-vimone.sh
 	$SYNC_FILE bash/bashrc $HOME/.bashrc
+	. $HOME/.bashrc
 	LOG "End config Bash ..."
 }
 
@@ -58,11 +60,8 @@ TARGETS="vim    \
 
 for t in $TARGETS
 do
-	if [ $t == "scripts" ];then
-		continue
-	fi
 
-	if [ $(which $t | grep -vi $t) ];then
+	if [ $t != "scripts" ] && [ $(which $t | grep -vi $t) ];then
 		LOG "Error: $t not install, please install it."
 		continue
 	fi
