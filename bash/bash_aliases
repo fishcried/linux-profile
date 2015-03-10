@@ -34,8 +34,8 @@ alias cgrep="grep -nr --include *.[ch] "
 # clear
 alias cl='clear'
 
-mcd() { cd "$1"; ls;}
+mcd() { cd "$1"; ls; }
 
-bacup() { cp "$1"{,.bak};}
+backup() { cp "$1"{,.bak}; }
 
-md5check() {md5sum "$1" | grep "$2";}
+md5check() { md5sum "$1" | grep "$2"; }
