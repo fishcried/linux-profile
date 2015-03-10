@@ -45,7 +45,7 @@ function normal_worksapce()
 
 		# (2/1)BLOG/Jekyll server
 		tmux new-window -t $SNAME -n BLOG
-		tmux send-keys -t $SNAME:2  'jump blog && jekyll server -D --watch' C-m
+		tmux send-keys -t $SNAME:2  'jump blog && jekyll server -D --watch -H 0.0.0.0' C-m
 		# (2/2)BLOG/Jekyll Editor
 		#tmux split-window -v -t $SNAME:2
 		#tmux send-keys  -t $SNAME:2.2 'jump blog' C-m
