@@ -33,6 +33,7 @@
 	Plugin 'reedes/vim-one'
     Plugin 'mileszs/ack.vim'
 	Plugin 'fcitx.vim'
+	Plugin 'christoomey/vim-tmux-navigator'
 
 
 	call vundle#end()

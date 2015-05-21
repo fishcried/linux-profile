@@ -1,0 +1,16 @@
+--sort-files
+--python
+--html
+--conf
+
+--color
+
+--noheading
+
+--smart-case
+
+--type-set=conf=.conf
+
+
+
+
