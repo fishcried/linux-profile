@@ -4,7 +4,6 @@
 # Copyright (c) 2014 fishcried(tianqing.w@gmail.com)
 #
 
-
 LOG() {
 	echo "$(date +'%Y/%m/%d %T')-> $@" 
 }
@@ -40,6 +39,18 @@ config_scripts() {
 	LOG "End config Scripts..."
 }
 
+config_ohmyz() {
+	LOG "Begin config Vim ..."
+
+	dpkg -l | grep -qw zsh || sudo apt-get install zsh
+	[ ! -e "$HOME/.oh-my-zsh" ] && sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+	
+	$SYNC_FILE ohmyz/zshrc $HOME/.zshrc
+
+	LOG "End config Vim ..."
+}
+
 config_vim() {
 	LOG "Begin config Vim ..."
 	
@@ -53,9 +64,8 @@ SYNC_FILE="rsync -vl"
 SYNC_DIR="rsync -vlr"
 
 TARGETS="vim    \
-		scripts   \
-		bash    \
-		firefox \
+		scripts \
+		ohmyz   \
 		tmux"
 
 for t in $TARGETS
@@ -68,5 +78,3 @@ do
 
 	config_$t
 done
-
-

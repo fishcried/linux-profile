@@ -1,0 +1,21 @@
+# Path to your oh-my-zsh installation.
+export ZSH=/home/$(whoami)/.oh-my-zsh
+
+ZSH_THEME="rkj"
+DISABLE_AUTO_TITLE="true"
+HIST_STAMPS="mm/dd/yyyy"
+
+plugins=(git autojump colored-man sudo zsh_reload )
+
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/$(whoami)/Bin:/home/$(whoami)/Draft-bin"
+# export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
+
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+
+export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+export DRAFT_DIR=/home/$(whoami)/Projects/blog_drafts
+export POST_DIR=/home/$(whoami)/Projects/fishcried.github.io

@@ -59,11 +59,11 @@ function load_blog() {
 	if [ $? != 0 ]; then
 		# (1)drafts
 		tmux new-session -s $workspace -n Drafts -d
-		tmux send-keys -t $workspace:1 'jump draft && jekyll server -D --watch -H 0.0.0.0 -P 4001' C-m
+		tmux send-keys -t $workspace:1 'blog-server draft' C-m
 
 		# (2)server
 		tmux new-window -t $workspace -n Blog
-		tmux send-keys -t $workspace:2  'jump blog && jekyll server --watch -H 0.0.0.0 -P 4000' C-m
+		tmux send-keys -t $workspace:2  'blog-server post' C-m
 	fi
 }
 
