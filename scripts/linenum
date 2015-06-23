@@ -1,29 +1,28 @@
 #!/bin/bash
 #A script to enumerate local information from a Linux host
-v="version 0.5 (experimental)"
-#@oshearing
+v="version 0.0"
+#modified by fishcried, based on LinEnum(git@github.com:rebootuser/LinEnum.git)
 
 #help function
 usage () 
 { 
-echo -e "\n\e[00;31m#########################################################\e[00m" 
-echo -e "\e[00;31m#\e[00m" "\e[00;33mLocal Linux Enumeration & Privilege Escalation Script\e[00m" "\e[00;31m#\e[00m"
-echo -e "\e[00;31m#########################################################\e[00m"
-echo -e "\e[00;33m# www.rebootuser.com\e[00m"
-echo -e "\e[00;33m# $v\e[00m\n"
-echo -e "\e[00;33m# Example: ./LinEnum.sh -k keyword -r report -e /tmp/ -t \e[00m\n"
+	echo -e "\n\e[00;31m#########################################################\e[00m"
+	echo -e "\e[00;31m#\e[00m" "\e[00;33mLocal Linux Enumeration & Privilege Escalation Script\e[00m" "\e[00;31m#\e[00m"
+	echo -e "\e[00;31m#########################################################\e[00m"
+	echo -e "\e[00;33m# $v\e[00m\n"
+	echo -e "\e[00;33mExample: ./lineum -k keyword -r report -e /tmp/ -t \e[00m\n"
 
-		echo "OPTIONS:"
-		echo "-k	Enter keyword"
-		echo "-e	Enter export location"
-		echo "-t	Include thorough (lengthy) tests"
-		echo "-r	Enter report name" 
-		echo "-h	Displays this help text"
-		echo "-s	Shortly mode"
-		echo -e "\n"
-		echo "Running with no options = limited scans/no output file"
-		
-echo -e "\e[00;31m#########################################################\e[00m"		
+			echo "OPTIONS:"
+			echo "-k	Enter keyword"
+			echo "-e	Enter export location"
+			echo "-t	Include thorough (lengthy) tests"
+			echo "-r	Enter report name" 
+			echo "-h	Displays this help text"
+			echo "-s	Shortly mode"
+			echo -e "\n"
+			echo "Running with no options = limited scans/no output file"
+			
+	echo -e "\e[00;31m#########################################################\e[00m"		
 }
 while getopts "sh:k:r:e:t" option; do
  case "${option}" in
@@ -38,9 +37,6 @@ while getopts "sh:k:r:e:t" option; do
 done
 
 echo -e "\n\e[00;31m#########################################################\e[00m" |tee -a $report 2>/dev/null
-echo -e "\e[00;31m#\e[00m" "\e[00;33mLocal Linux Enumeration & Privilege Escalation Script\e[00m" "\e[00;31m#\e[00m" |tee -a $report 2>/dev/null
-echo -e "\e[00;31m#########################################################\e[00m" |tee -a $report 2>/dev/null
-echo -e "\e[00;33m# www.rebootuser.com\e[00m" |tee -a $report 2>/dev/null
 echo -e "\e[00;33m# $version\e[00m\n" |tee -a $report 2>/dev/null
 
 echo "Debug Info" |tee -a $report 2>/dev/null
@@ -80,7 +76,7 @@ sleep 2
 
 if [ "$export" ]; then
   mkdir $export 2>/dev/null
-  format=$export/LinEnum-export-`date +"%d-%m-%y_%k:%M"`
+  format=$export/linenum-export-`date +"%d-%m-%y_%k:%M"`
   mkdir $format 2>/dev/null
 else 
   :
