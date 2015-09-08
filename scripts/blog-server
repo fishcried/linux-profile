@@ -22,14 +22,14 @@ case $1 in
 			exit 2
 		fi
 		cd $POST_DIR 
-		jekyll server --watch -H 0.0.0.0 -P 4000  ;;
+		bundle exec jekyll server --watch -H 0.0.0.0 -P 4000  ;;
 	*draft*)
 		if [ "x$DRAFT_DIR" == "x" ];then
 			echo "DRAFT_DIR not define."
 			exit 2
 		fi
 		cd $DRAFT_DIR 
-		jekyll server --watch -D -H 0.0.0.0 -P 4001  ;;
+		bundle exec jekyll server --watch -D -H 0.0.0.0 -P 4001  ;;
 	*)
 		usage
 		exit 1;;
