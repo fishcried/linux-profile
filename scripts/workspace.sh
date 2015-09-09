@@ -57,13 +57,10 @@ function load_blog() {
 	tmux has-session -t $workspace
 
 	if [ $? != 0 ]; then
-		# (1)drafts
-		tmux new-session -s $workspace -n Drafts -d
-		tmux send-keys -t $workspace:1 'blog-server draft' C-m
+		# (1)blog server
+		tmux new-session -s $workspace -n Blog -d
+		tmux send-keys -t $workspace:1 'blog-server post' C-m
 
-		# (2)server
-		tmux new-window -t $workspace -n Blog
-		tmux send-keys -t $workspace:2  'blog-server post' C-m
 	fi
 }
 
