@@ -58,8 +58,8 @@ function load_blog() {
 
 	if [ $? != 0 ]; then
 		# (1)blog server
-		tmux new-session -s $workspace -n Blog -d
-		tmux send-keys -t $workspace:1 'blog-server post' C-m
+		tmux new-session -s $workspace -n blog-server -d
+		tmux send-keys -t $workspace:1 'blog-server draft' C-m
 
 	fi
 }
