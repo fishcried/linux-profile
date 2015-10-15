@@ -40,8 +40,8 @@ function load_working()
 
 	if [ $? != 0 ]; then
 		# (1)WIN
-		tmux new-session -s $workspace -n Timing -d
-		tmux send-keys -t $workspace:1  'time read' C-m
+		tmux new-session -s $workspace -n Timer -d
+		tmux send-keys -t $workspace:1  'timer' C-m
 
 		# (2) Working
 		tmux new-window -t $workspace -n Working

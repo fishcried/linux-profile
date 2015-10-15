@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# The MIT License (MIT)
+# Copyright (c) 2014 fishcried(tianqing.w@gmail.com)
+#
+
+
+h=0
+m=0
+s=0
+period=60
+start_time=$(date +%H:%M:%S)
+
+trap 'printf "\r[$start_time - $now] : Time passed - %02d:%02d:%02d\n" $h $m $s \
+	&& exit 0' SIGINT
+
+
+while :
+do
+	now=$(date +%H:%M:%S)
+	printf "\r[$start_time - $now] : Time passed - %02d:%02d:%02d" $h $m $s
+	sleep 1 && s=$(($s + 1))
+	if [ $s -ge $period ]; then
+		m=$((m + 1))
+		s=0
+	fi
+	if [ $m -ge $period ]; then
+		h=$((h + 1))
+		m=0
+	fi
+done
