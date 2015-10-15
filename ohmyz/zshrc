@@ -24,3 +24,6 @@ export DRAFT_DIR=$POST_DIR
 
 export ZSH=/home/$(whoami)/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+# alias
+alias cls="clear"
