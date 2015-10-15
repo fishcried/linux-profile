@@ -1,3 +1,7 @@
+" Run the current file with bash
+map <Leader>rs :call VimuxRunCommand("clear;bash ".bufname("%"))<CR>
+map <Leader>rp :call VimuxRunCommand("clear;python ".bufname("%"))<CR>
+
 " Prompt for a command to run
 map <Leader>vp :VimuxPromptCommand<CR>
 
