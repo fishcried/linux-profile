@@ -26,8 +26,27 @@ config_bash() {
 }
 
 config_tmux() {
+	local plugin_dir="$HOME/.tmux/plugins"
+
+	LOG "Begin install tmux-plugin"
+	if [ ! -e "$plugin_dir" ]; then
+		mkdir -p $plugin_dir
+	fi
+
+	if [ ! -e "$plugin_dir/tpm" ]; then
+		git clone https://github.com/tmux-plugins/tpm $plugin_dir/tpm
+	else
+		LOG "Tmux-plugin　has installed, just update"
+		pushd $plugin_dir/tpm
+		git pull origin master
+		popd
+	fi
+
+	LOG "End install tmux-plugin"
+
 	LOG "Begin config Tmux ..."
-	$SYNC_FILE tmux/tmux.conf $HOME/.tmux.conf
+	$SYNC_DIR tmux/configs/ ~/.tmux/configs/
+	mv ~/.tmux/configs/main.conf ~/.tmux.conf
 	LOG "End config Tmux ..."
 
 }
