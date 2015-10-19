@@ -1,0 +1,12 @@
+session_name: tuning
+
+
+windows:
+  - window_name: watcher
+    layout: main-vertical
+    panes:
+    - top
+    - sar -u 3
+    - sar -r 3
+    - sar -b -d 3
+    - sar -n DEV 3

@@ -1,0 +1,18 @@
+session_name: office
+windows:
+  - window_name: timer
+    panes:
+    - timer
+
+  - window_name: editor
+    focus: true
+    panes:
+    - blank
+
+  - window_name: blog
+    start_directory: '~/Projects/fishcried.github.io'
+    panes:
+    - shell_command: 
+      - vim
+    - shell_command: 
+      - bundle exec jekyll server --watch -D -H 0.0.0.0 -P 4000

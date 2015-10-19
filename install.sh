@@ -49,6 +49,10 @@ config_tmux() {
 	mv ~/.tmux/configs/main.conf ~/.tmux.conf
 	LOG "End config Tmux ..."
 
+	LOG "Begin sync workspace profiles"
+	$SYNC_DIR tmux/workspaces/ ~/.tmuxp/
+	LOG "End sync workspace profiles"
+
 }
 
 config_scripts() {

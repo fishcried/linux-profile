@@ -1,8 +1,7 @@
 # Path to your oh-my-zsh installation.
 ZSH_THEME="steeef"
-DISABLE_AUTO_TITLE="true"
+export DISABLE_AUTO_TITLE="true"
 HIST_STAMPS="mm/dd/yyyy"
-
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/$(whoami)/Bin:/home/$(whoami)/Draft-bin"
 
@@ -10,6 +9,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 export WORKON_HOME=$HOME/.virtualenvs
 plugins=(git autojump colored-man sudo zsh_reload virtualenvwrapper virtualenv)
 
+export EDITOR="vim"
 
 # locale
 export LANG=en_US.UTF-8
@@ -18,12 +18,10 @@ export LC_CTYPE=zh_CN.UTF-8
 # ssh keys
 export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# blog server
-export POST_DIR=/home/$(whoami)/Projects/fishcried.github.io
-export DRAFT_DIR=$POST_DIR
+# alias
+alias cls="clear"
+
+source /usr/local/bin/tmuxp.zsh
 
 export ZSH=/home/$(whoami)/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
-
-# alias
-alias cls="clear"

@@ -1,0 +1,37 @@
+session_name: kilo
+windows:
+  - window_name: controller
+    shell_command_before:
+      - ssh kilo-controller-1
+      - sudo su -
+      - cd
+      - source murano/rc
+    panes:
+      - shell_command:
+        - neutron agent-list
+      - shell_command:
+        - nova list
+
+  - window_name: rabbitmq
+    shell_command_before:
+      - ssh kilo-data-1
+      - sudo su -
+      - cd
+    panes:
+      - shell_command: rabbitmqctl status
+
+  - window_name: keystone
+    shell_command_before:
+      - ssh kilo-controller-1
+      - sudo su -
+      - cd
+    panes:
+      - shell_command: 
+        - cd /var/log/keystone
+        - tail -f keystone.log
+      - shell_command: 
+        - cd /etc/keystone
+        - pwd
+      
+        
+

@@ -33,7 +33,7 @@
 	Plugin 'reedes/vim-one'
     Plugin 'mileszs/ack.vim'
 	Plugin 'fcitx.vim'
-	"Plugin 'christoomey/vim-tmux-navigator'
+	Plugin 'christoomey/vim-tmux-navigator'
 
 
 	call vundle#end()
@@ -133,7 +133,7 @@
 	autocmd BufNewFile,BufRead *.py set shiftwidth=4 tabstop=4 expandtab 
 				\ |set textwidth=80 | match ErrorMsg /\%>80v.\+/
 	autocmd BufNewFile,BufRead *.md set shiftwidth=2 tabstop=2 expandtab
-	autocmd BufNewFile,BufRead *.yaml set shiftwidth=2 tabstop=2 expandtab
+	autocmd BufNewFile,BufRead *.yaml,*.yml set shiftwidth=2 tabstop=2 expandtab
 	autocmd Filetype gitcommit setlocal spell textwidth=72
 "}}}
 
