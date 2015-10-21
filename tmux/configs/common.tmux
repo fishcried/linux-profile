@@ -8,12 +8,6 @@ set -g base-index 1
 setw -g pane-base-index 1
 set-option -g renumber-windows on
 
-# Enable Mouse
-setw -g mode-mouse on
-set -g mouse-select-pane on
-set -g mouse-resize-pane on
-set -g mouse-select-window on
-
 # SettingDelay
 set -sg escape-time 1
 
