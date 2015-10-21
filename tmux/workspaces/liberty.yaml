@@ -1,0 +1,59 @@
+session_name: liberty
+windows:
+  - window_name: controller1
+    layout: main_vertical
+    shell_command_before:
+      - ssh l-controller-1
+      - sudo su -
+      - source /opt/profile/admin-openrc.sh
+    panes:
+      - shell_command:
+        - cd
+      - shell_command:
+        - cd /etc/
+      - shell_command:
+        - cd /var/log
+
+  - window_name: rabbitmq
+    layout: tiled
+    shell_command_before:
+      - ssh l-data-1
+      - sudo su -
+      - cd
+    panes:
+      - shell_command: pwd
+      - shell_command: pwd
+      - shell_command: pwd
+      - shell_command: pwd
+
+  - window_name: network
+    layout: tiled
+    panes:
+      - shell_command: 
+        - ssh l-network-1
+        - sudo su -
+        - cd /etc/neutron
+      - shell_command: 
+        - ssh l-network-1
+        - sudo su -
+        - cd /var/log/neutron
+      - shell_command: 
+        - ssh l-network-2
+        - sudo su -
+        - cd /etc/neutron
+      - shell_command: 
+        - ssh l-network-2
+        - sudo su -
+        - cd /var/log/neutron
+
+  - window_name: compute1
+    shell_command_before:
+      - ssh l-compute-1
+      - sudo su -
+      - cd
+    panes:
+      - shell_command: pwd
+      - shell_command: pwd
+      
+        
+
