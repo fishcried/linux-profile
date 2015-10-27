@@ -45,7 +45,7 @@ config_tmux() {
 	LOG "End install tmux-plugin"
 
 	LOG "Begin config Tmux ..."
-	$SYNC_DIR tmux/configs/ ~/.tmux/configs/
+	$SYNC_DIR_S tmux/configs/ ~/.tmux/configs/
 	mv ~/.tmux/configs/main.conf ~/.tmux.conf
 	LOG "End config Tmux ..."
 
@@ -57,8 +57,8 @@ config_tmux() {
 
 config_scripts() {
 	LOG "Begin config Scripts ..."
-	$SYNC_DIR scripts/ $HOME/Bin/
-	chmod u+x $HOME/Bin/*
+	$SYNC_DIR_S scripts/ $HOME/bin/
+	chmod u+x $HOME/bin/*
 	LOG "End config Scripts..."
 }
 
@@ -85,6 +85,7 @@ config_vim() {
 
 SYNC_FILE="rsync -vl"
 SYNC_DIR="rsync -vlr"
+SYNC_DIR_S="rsync -vlr --delete"
 
 TARGETS="vim    \
 		scripts \

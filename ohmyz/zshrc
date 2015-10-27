@@ -1,27 +1,35 @@
-# Path to your oh-my-zsh installation.
-ZSH_THEME="steeef"
-export DISABLE_AUTO_TITLE="true"
-HIST_STAMPS="mm/dd/yyyy"
+# {{{ envs
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/$(whoami)/Bin:/home/$(whoami)/Draft-bin"
+	export ZSH=$HOME/.oh-my-zsh
+	export ZSH_THEME="steeef"
+	export DISABLE_AUTO_TITLE="true"
+	export HIST_STAMPS="mm/dd/yyyy"
 
-#python virtual environment
-export WORKON_HOME=$HOME/.virtualenvs
+	# PATH
+	export PATH=$PATH:$HOME/bin
+
+	# locale
+	export LANG=en_US.UTF-8
+	export LC_CTYPE=zh_CN.UTF-8
+	# editor
+	export EDITOR="vim"
+
+	# python
+	export WORKON_HOME=$HOME/.virtualenvs
+
+	# ssh keys
+	export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# }}}
+
 plugins=(git autojump colored-man sudo zsh_reload virtualenvwrapper virtualenv)
 
-export EDITOR="vim"
 
-# locale
-export LANG=en_US.UTF-8
-export LC_CTYPE=zh_CN.UTF-8
+# {{{ source file
+	source $ZSH/oh-my-zsh.sh
+	# custom compelete
+	[ -e /usr/local/bin/tmuxp.zsh ] && source /usr/local/bin/tmuxp.zsh
+# }}}
 
-# ssh keys
-export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # alias
-alias cls="clear"
-
-source /usr/local/bin/tmuxp.zsh
-
-export ZSH=/home/$(whoami)/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh

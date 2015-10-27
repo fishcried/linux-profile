@@ -1,7 +1,7 @@
 session_name: liberty
 windows:
   - window_name: controller1
-    layout: main_vertical
+    layout: main-vertical
     shell_command_before:
       - ssh l-controller-1
       - sudo su -

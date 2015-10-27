@@ -11,6 +11,9 @@ windows:
 
   - window_name: blog
     start_directory: '~/Projects/fishcried.github.io'
+    layout: main-horizontal
+    options:
+      main-pane-height: 40
     panes:
     - shell_command: 
       - vim
