@@ -53,6 +53,7 @@
 	filetype plugin on
 	set history=500
 	set autoread
+	set autochdir
 	syntax enable		" 开启语法高亮
 	set foldmethod=syntax "折叠
 

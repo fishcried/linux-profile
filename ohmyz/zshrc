@@ -33,3 +33,5 @@ plugins=(git autojump colored-man sudo zsh_reload virtualenvwrapper virtualenv)
 
 
 # alias
+alias vimblog="vim --servername BLOG --remote-silent"
+alias vimone="vim --servername ONE --remote-silent"

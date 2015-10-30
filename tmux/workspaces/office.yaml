@@ -7,7 +7,7 @@ windows:
   - window_name: editor
     focus: true
     panes:
-    - blank
+      - vim --servername ONE
 
   - window_name: blog
     start_directory: '~/Projects/fishcried.github.io'
@@ -16,6 +16,6 @@ windows:
       main-pane-height: 40
     panes:
     - shell_command: 
-      - vim
+      - vim --servername BLOG
     - shell_command: 
       - bundle exec jekyll server --watch -D -H 0.0.0.0 -P 4000
