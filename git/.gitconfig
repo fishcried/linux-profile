@@ -1,0 +1,11 @@
+[core]
+	editor = vim
+[user]
+	email = fishcried@163.com
+	name = fishcried
+[color]
+	status = auto
+	branch = auto
+	diff = auto
+	ui = true
+	pager = true
