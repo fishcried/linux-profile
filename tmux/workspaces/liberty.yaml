@@ -58,7 +58,6 @@ windows:
         - cd /var/log/neutron
 
   - window_name: compute
-    shell_command_before:
     panes:
       - shell_command:
         - ssh l-compute-1
