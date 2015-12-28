@@ -32,6 +32,9 @@
 	Plugin 'kien/ctrlp.vim'
 	Plugin 'reedes/vim-one'
     Plugin 'mileszs/ack.vim'
+	Plugin 'Valloric/YouCompleteMe'
+	Plugin 'airblade/vim-gitgutter'
+	Plugin 'nvie/vim-flake8'
 
 
 	call vundle#end()
@@ -103,12 +106,12 @@
 		"autocmd VimEnter * call g:LoadSession()
 		"autocmd VimLeave * call g:SaveSession()
 	"}}}
-	
+
 	" 备份设置 {{{
 		set nobackup
 		set nowritebackup
 	"}}}
-	
+
 	" UI {{{
 		set laststatus=2
 		set statusline=%F%m%r%h%w\ [FMT=%{&ff}/%{&encoding}/%Y]
@@ -117,7 +120,7 @@
 		set showcmd
 		set cmdheight=1
 	"}}}
-	
+
 	" vimrc触发 {{{
 		autocmd! bufwritepost *.vimrc source $HOME/.vimrc
 	"}}}
@@ -126,11 +129,14 @@
 " 代码风格设置 {{{
 	set shiftwidth=4
 	set tabstop=4
+	" 高亮行尾空格
+	highlight WhitespaceEOL ctermbg=red guibg=red
+	match WhitespaceEOL /\s\+$/
 	autocmd BufNewFile,BufRead *.sls set shiftwidth=2 tabstop=2 expandtab
 	autocmd BufNewFile,BufRead *.c,*.h set shiftwidth=8 tabstop=8 cindent
-				\ |set textwidth=80 | match ErrorMsg /\%>80v.\+/
+				\ |set textwidth=79 | match ErrorMsg /\%>79v.\+/
 	autocmd BufNewFile,BufRead *.py set shiftwidth=4 tabstop=4 expandtab 
-				\ |set textwidth=80 | match ErrorMsg /\%>80v.\+/
+				\ |set textwidth=79 | match ErrorMsg /\%>79v.\+/
 	autocmd BufNewFile,BufRead *.md set shiftwidth=2 tabstop=2 expandtab
 	autocmd BufNewFile,BufRead *.yaml,*.yml set shiftwidth=2 tabstop=2 expandtab
 	autocmd Filetype gitcommit setlocal spell textwidth=72
@@ -156,4 +162,5 @@
 	source $HOME/.vim/configs/vimux.vim
 	source $HOME/.vim/configs/ctrlp.vim
 	source $HOME/.vim/configs/buftabline.vim
+	source $HOME/.vim/configs/youcompleteme.vim
 " }}}
