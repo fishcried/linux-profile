@@ -77,6 +77,9 @@ function Search_Word()
 	execute "Ack " . w 
 endfunction
 
+" vimwiki
+nmap <leader>wiki :VimwikiAll2HTML<cr>
+
 if exists('$TMUX')
   set term=screen-256color
 endif
