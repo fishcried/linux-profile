@@ -115,3 +115,6 @@ function! XTermPasteBegin()
 endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+" 通过firefox快速预览markdown效果.
+autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} map <Leader>fmk :!firefox --new-tab "%:p"<CR>

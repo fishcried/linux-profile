@@ -20,6 +20,8 @@
 	# ssh keys
 	export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+	export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache_dir
+
 # }}}
 
 plugins=(git autojump colored-man sudo zsh_reload virtualenvwrapper virtualenv)
